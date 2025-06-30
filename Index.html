@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My E-Commerce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    .hero {
+      background: url('https://picsum.photos/1200/400') no-repeat center center;
+      background-size: cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .product {
+      background-color: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My E-Commerce</h1>
+  </header>
+
+  <nav>
+    <a href="#">홈</a>
+    <a href="#">상품</a>
+    <a href="#">장바구니</a>
+    <a href="#">문의하기</a>
+  </nav>
+
+  <div class="hero">
+    오늘의 핫딜🔥
+  </div>
+
+  <section class="products">
+    <div class="product">
+      <img src="https://picsum.photos/300/200?random=1" alt="상품 1" />
+      <h3>상품 1</h3>
+      <p>₩29,000</p>
+    </div>
+    <div class="product">
+      <img src="https://picsum.photos/300/200?random=2" alt="상품 2" />
+      <h3>상품 2</h3>
+      <p>₩45,000</p>
+    </div>
+    <div class="product">
+      <img src="https://picsum.photos/300/200?random=3" alt="상품 3" />
+      <h3>상품 3</h3>
+      <p>₩15,000</p>
+    </div>
+    <div class="product">
+      <img src="https://picsum.photos/300/200?random=4" alt="상품 4" />
+      <h3>상품 4</h3>
+      <p>₩62,000</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 My E-Commerce. 모든 권리 보유.
+  </footer>
+
+</body>
+</html>
