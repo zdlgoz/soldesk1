@@ -1,0 +1,49 @@
+---
+- name: Setup for the Ansible's Environment
+  hosts: localhost
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Add '/etc/ansible/hosts'
+      blockinfile:
+        path: /etc/ansible/hosts
+        block: |
+          [windows]
+          192.168.8.17 ansible_connection=winrm ansible_user=vagrant ansible_port=5985
+    
+    - name: Install epel-release
+      yum:
+        name: epel-release
+        state: present
+    
+    - name: Install pip
+      shell: "{{ item }}"
+      with_items:
+        - "curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py"
+        - "python get-pip.py "
+        - "pip install --upgrade 'pip < 21.0'"
+
+    - name: Install pywinrm
+      pip:
+        name: pywinrm
+        state: present
+
+    - name: Create vim env's directories $ files
+      shell: "{{ item }}"
+      with_items:
+        - "touch /home/vagrant/.vimrc"
+        - "touch /home/vagrant/.bashrc"
+
+    - name: Configure vimrc
+      lineinfile:
+        path: /home/vagrant/.vimrc
+        line: "set number"
+
+    - name: Configure Bashrc
+      lineinfile:
+        path: /home/vagrant/.bashrc
+        line: "{{ item }}"
+      with_items:
+        - "alias ans='ansible'" 
+        - "alias anp='ansible-playbook'" 

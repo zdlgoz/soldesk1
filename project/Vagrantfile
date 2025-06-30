@@ -1,0 +1,13 @@
+Vagrant.configure("2") do |config|
+  config.vbguest.auto_update = false
+  config.vm.define "test-server" do |cfg|
+    cfg.vm.box = "centos/7"
+    cfg.vm.provider "virtualbox" do |vb|
+      vb.name = "Test-Server"
+    end
+    cfg.vm.host_name = "test-server"
+    cfg.vm.network "private_network", ip: "192.168.8.10"
+    cfg.vm.network "forwarded_port", guest: 22, host: 60010, auto_correct: true, id: "ssh"
+    cfg.vm.synced_folder "../data", "/vagrant", disabled: true
+  end
+end
